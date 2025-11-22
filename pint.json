@@ -1,0 +1,13 @@
+{
+  "preset": "laravel",
+  "lineEnding": "\n",
+  "rules": {
+    "concat_space": true,
+    "declare_strict_types": true,
+    "fully_qualified_strict_types": true,
+    "phpdoc_separation": true
+  },
+  "exclude": [
+    "tmp"
+  ]
+}

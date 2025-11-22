@@ -1,0 +1,43 @@
+{
+  "name": "gbrain/excel-imports",
+  "description": "A reusable Excel import analysis framework for Laravel with rules, severity levels, analysis DTOs, and modular import behavior.",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Gbrain\\ExcelImports\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=8.2",
+    "laravel/framework": "^10.0|^11.0",
+    "maatwebsite/excel": "^3.1"
+  },
+  "require-dev": {
+    "laravel/pint": "^1.13",
+    "pestphp/pest-plugin-laravel": "@stable",
+    "orchestra/testbench": "^8.0 || ^9.0"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Gbrain\\ExcelImports\\ExcelImportServiceProvider"
+      ]
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Gbrain\\ExcelImports\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/pest",
+    "test:coverage": "vendor/bin/pest --coverage"
+  },
+  "minimum-stability": "stable",
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  }
+}
