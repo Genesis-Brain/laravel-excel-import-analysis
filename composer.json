@@ -1,5 +1,5 @@
 {
-  "name": "gbrain/excel-imports",
+  "name": "genesis-brain/laravel-excel-import-analysis",
   "description": "A reusable Excel import analysis framework for Laravel with rules, severity levels, analysis DTOs, and modular import behavior.",
   "type": "library",
   "license": "MIT",
