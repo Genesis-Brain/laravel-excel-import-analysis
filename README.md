@@ -1,4 +1,4 @@
-# Gbrain Excel Imports
+# Genesis Brain Laravel Excel Imports Analysis
 
 A reusable, rule-based Excel import analysis framework for Laravel.
 It provides structured per-row analysis, severity levels, contextual DTOs, and a clean import architecture that integrates seamlessly with **Laravel Excel**.
