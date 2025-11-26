@@ -1,6 +1,6 @@
 # Gbrain Excel Imports
 
-A reusable, rule-based Excel import analysis framework for Laravel.  
+A reusable, rule-based Excel import analysis framework for Laravel.
 It provides structured per-row analysis, severity levels, contextual DTOs, and a clean import architecture that integrates seamlessly with **Laravel Excel**.
 
 This package is designed to help you build **robust, extensible, and maintainable Excel import pipelines** in your Laravel applications.

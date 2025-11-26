@@ -13,6 +13,7 @@ use Gbrain\ExcelImports\Enums\ExcelImportAnalysisLevelEnum;
 use Gbrain\ExcelImports\Exceptions\ExcelImportNotPassedRulesValidation;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Support\Collection;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Throwable;
 
 /**
@@ -62,6 +63,10 @@ trait AnalyzesData
         $this->fillRulesRepository();
         $this->rowIndex = 0;
 
+        if ($this instanceof WithHeadingRow) {
+            $this->rowIndex++;
+        }
+
         if ($this->analyzeBeforeHandle || $this->onlyAnalysis) {
             foreach ($collection as $row) {
                 $this->analyzeRow($row);
@@ -103,10 +108,7 @@ trait AnalyzesData
     final public function withAnalysis(bool $withoutImport = false): static
     {
         $this->analyzeBeforeHandle = true;
-
-        if ($withoutImport) {
-            $this->onlyAnalysis = true;
-        }
+        $this->onlyAnalysis = $withoutImport;
 
         return $this;
     }
