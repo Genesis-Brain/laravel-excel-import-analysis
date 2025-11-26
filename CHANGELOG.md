@@ -1,4 +1,6 @@
 # Changelog
 
-## v0.1.0
-- Initial pre-release.
+## v1.0.0
+- Initial MVP release.
+## v1.0.2
+- Composer packages updated
