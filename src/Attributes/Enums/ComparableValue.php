@@ -16,9 +16,9 @@ use Attribute;
 class ComparableValue
 {
     /**
-     * @param  int|string  $comparableValue  Value used when comparing/sorting the enum case
+     * @param  int|string|float  $comparableValue  Value used when comparing/sorting the enum case
      */
     public function __construct(
-        public int|string $comparableValue,
+        public int|string|float $comparableValue,
     ) {}
 }

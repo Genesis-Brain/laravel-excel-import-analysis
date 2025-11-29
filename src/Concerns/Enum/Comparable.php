@@ -24,7 +24,7 @@ trait Comparable
      *
      * @throws Exception When the ComparableValue attribute is missing
      */
-    protected function comparableForm(): int
+    protected function comparableForm(): int|float|string
     {
         $attribute = $this->getAttribute(ComparableValue::class);
 
