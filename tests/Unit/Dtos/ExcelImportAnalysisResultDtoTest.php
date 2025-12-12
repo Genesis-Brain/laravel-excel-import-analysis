@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Gbrain\ExcelImports\Dtos\ExcelImportAnalysisResultDto;
 use Gbrain\ExcelImports\Enums\ExcelImportAnalysisLevelEnum;
 

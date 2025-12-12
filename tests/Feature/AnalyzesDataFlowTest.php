@@ -43,7 +43,7 @@ class FlowRule extends Gbrain\ExcelImports\Abstracts\Analysis\ExcelImportAnalysi
 }
 
 it('throws when analysis finds errors at or below threshold in analysis-only mode', function () {
-    $import = new FlowImport();
+    $import = new FlowImport;
     $import->withAnalysis(true)->minimalLevelToReport(Level::ERROR);
 
     $rows = collect([
@@ -56,7 +56,7 @@ it('throws when analysis finds errors at or below threshold in analysis-only mod
 });
 
 it('bypasses analysis and imports when withoutAnalysis is used', function () {
-    $import = new FlowImport();
+    $import = new FlowImport;
     $import->withoutAnalysis();
 
     $rows = collect([
@@ -70,7 +70,7 @@ it('bypasses analysis and imports when withoutAnalysis is used', function () {
 });
 
 it('runs analysis then imports when withAnalysis(false) is used and no errors', function () {
-    $import = new FlowImport();
+    $import = new FlowImport;
     $import->withAnalysis(false)->minimalLevelToReport(Level::ERROR);
 
     $rows = collect([

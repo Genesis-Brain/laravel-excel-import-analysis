@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Gbrain\ExcelImports\Enums\ExcelImportAnalysisLevelEnum as Level;
 
 test('ExcelImportAnalysisLevelEnum compares severities correctly', function () {

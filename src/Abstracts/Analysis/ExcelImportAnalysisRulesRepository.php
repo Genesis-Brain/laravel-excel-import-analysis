@@ -34,7 +34,10 @@ class ExcelImportAnalysisRulesRepository implements ExcelImportAnalysisRulesRepo
     /**
      * @param  ExcelImportAnalyzesDataInterface  $importInstance  The import instance associated to these rules
      */
-    public function __construct(private readonly ExcelImportAnalyzesDataInterface $importInstance) {}
+    public function __construct(private readonly ExcelImportAnalyzesDataInterface $importInstance)
+    {
+        $this->rules = collect();
+    }
 
     /**
      * Register a rule instance in the repository and propagate configuration.
@@ -42,10 +45,6 @@ class ExcelImportAnalysisRulesRepository implements ExcelImportAnalysisRulesRepo
      */
     final public function add(ExcelImportAnalysisRuleInterface $analysisRule, ?ExcelImportAnalysisLevelEnum $minimalReportLevel = null): void
     {
-        if (! isset($this->rules)) {
-            $this->rules = collect();
-        }
-
         $this->rules->put(
             $analysisRule::class,
             $analysisRule
