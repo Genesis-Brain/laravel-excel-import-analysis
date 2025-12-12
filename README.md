@@ -18,7 +18,7 @@ This package is designed to help you build **robust, extensible, and maintainabl
 ## 📦 Installation
 
 ```bash
-composer require gbrain/excel-imports
+composer require genesis-brain/laravel-excel-import-analysis
 ```
 
 Requires:
