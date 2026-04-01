@@ -10,13 +10,13 @@
   },
   "require": {
     "php": ">=8.3",
-    "laravel/framework": "^10.0|^11.0",
+    "laravel/framework": "^12.0|^13.0",
     "maatwebsite/excel": "^3.1"
   },
   "require-dev": {
     "laravel/pint": "^1.13",
     "pestphp/pest-plugin-laravel": "@stable",
-    "orchestra/testbench": "^8.0 || ^9.0"
+    "orchestra/testbench": "^11.0"
   },
   "extra": {
     "laravel": {
