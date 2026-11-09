@@ -40,7 +40,7 @@ trait AnalyzesData
     /** Current row index during processing (0-based). */
     protected int $rowIndex = 0;
 
-    /** Minimal level to report failures; rows below this are ignored. */
+    /** Minimal level to report failures; results below this level are ignored. */
     private ExcelImportAnalysisLevelEnum $minimalReportLevel = ExcelImportAnalysisLevelEnum::INFO;
 
     /** Whether to run analysis before handling the import. */
@@ -73,7 +73,7 @@ trait AnalyzesData
                 $this->rowIndex++;
             }
 
-            if ($this->hasErrorsBelowOrEqualToReportLevel()) {
+            if ($this->hasErrorsAtOrAboveReportLevel()) {
                 throw new ExcelImportNotPassedRulesValidation($this->analysis);
             }
 
@@ -209,10 +209,13 @@ trait AnalyzesData
     protected function afterValidationFailed(ExcelImportAnalysisResultDto $result): void {}
 
     /**
-     * Whether there are any results at or below the configured minimal level.
+     * Whether there are any results at or above the configured minimal level.
+     *
+     * Levels are ordered INFO < WARNING < ERROR < CRITICAL, so a CRITICAL result
+     * must fail an import whose threshold is ERROR.
      */
-    private function hasErrorsBelowOrEqualToReportLevel(): bool
+    private function hasErrorsAtOrAboveReportLevel(): bool
     {
-        return $this->analysis->filter(fn (ExcelImportAnalysisResultDto $dto) => $dto->level->lte($this->minimalReportLevel))->isNotEmpty();
+        return $this->analysis->filter(fn (ExcelImportAnalysisResultDto $dto) => $dto->level->gte($this->minimalReportLevel))->isNotEmpty();
     }
 }
