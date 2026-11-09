@@ -2,4 +2,8 @@
 
 declare(strict_types=1);
 
-// You can put global helpers or expectations here.
+use Gbrain\ExcelImports\Tests\TestCase;
+
+// Feature tests boot a Laravel application via Orchestra Testbench so that
+// Laravel Excel's facade and service provider are available.
+uses(TestCase::class)->in('Feature');

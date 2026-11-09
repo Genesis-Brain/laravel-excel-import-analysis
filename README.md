@@ -81,7 +81,7 @@ use Maatwebsite\Excel\Facades\Excel;
 Excel::import(new ProductsImport(), 'products.xlsx');
 ```
 
-If any analysis results are produced at or below the configured minimal level, an
+If any analysis results are produced at or above the configured minimal level, an
 `Gbrain\ExcelImports\Exceptions\ExcelImportNotPassedRulesValidation` exception
 will be thrown. You can catch it to surface errors to users or logs.
 
@@ -123,7 +123,7 @@ Excel::import((new ProductsImport())->withAnalysis(), 'products.xlsx'); // defau
 ```
 - Each row is validated using your registered rules
 - All analysis results are collected
-- If any rule produces a result at or below the minimal report level, an exception is thrown
+- If any rule produces a result at or above the minimal report level, an exception is thrown
 
 ### ### ⛔ `withoutAnalysis()`
 Disables all rule checks.

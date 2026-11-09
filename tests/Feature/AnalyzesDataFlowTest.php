@@ -82,3 +82,30 @@ it('runs analysis then imports when withAnalysis(false) is used and no errors', 
 
     expect($import->handled)->toHaveCount(2);
 });
+
+it('throws when a result is more severe than the minimal report level', function () {
+    $import = new FlowImport;
+    $import->withAnalysis(true)->minimalLevelToReport(Level::WARNING);
+
+    // FlowRule reports ERROR, which is above the WARNING threshold.
+    $rows = collect([
+        collect(['fail' => true]),
+    ]);
+
+    expect(fn () => $import->collection($rows))
+        ->toThrow(ExcelImportNotPassedRulesValidation::class);
+});
+
+it('does not throw when every result is less severe than the minimal report level', function () {
+    $import = new FlowImport;
+    $import->withAnalysis(false)->minimalLevelToReport(Level::CRITICAL);
+
+    // FlowRule reports ERROR, which is below the CRITICAL threshold.
+    $rows = collect([
+        collect(['fail' => true]),
+    ]);
+
+    $import->collection($rows);
+
+    expect($import->handled)->toHaveCount(1);
+});
