@@ -23,9 +23,9 @@ composer require genesis-brain/laravel-excel-import-analysis
 
 Requires:
 
-- PHP >= 8.2
-- Laravel >= 10
-- maatwebsite/excel >= 3.1
+- PHP >= 8.3
+- Laravel >= 12
+- maatwebsite/excel >= 4.0
 
 ## 🚀 Basic Usage
 
